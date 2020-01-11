@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef INPUTCONTROLLER_LIB
-#define INPUTCONTROLLER_LIB
+#ifndef INPUTCONTROLLER_HPP
+#define INPUTCONTROLLER_HPP
 
 #include "DxLib.h"
 

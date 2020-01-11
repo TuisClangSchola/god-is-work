@@ -33,7 +33,7 @@ bool Init(const int t_winWidth, const int t_winHeight, const int t_bitColor, std
 
 	SetGraphMode(winWidth, winHeight, bitColor);			// 画面サイズ設定
 	GetDefaultState(&winWidth, &winHeight, &bitColor);		// デフォルトウィンドウ値を得る
-	SetWindowSize(winWidth / 2, winHeight / 2);					// デフォルトウィンドウサイズに合わせてゲームサイズを変更
+	SetWindowSize(winWidth, winHeight);					// デフォルトウィンドウサイズに合わせてゲームサイズを変更
 
 	SetAlwaysRunFlag(TRUE);				// 裏画面でも常にアクティブに変更
 
@@ -64,7 +64,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		InputControl::PadData::UpDate();
 
 
-		DrawFormatString(0, 0, GetColor(255, 255, 255), "でけた");
+		DrawFormatString(0, 0, GetColor(255, 255, 255), "(0, 0)");
+		DrawFormatString(1840, 0, GetColor(255, 255, 255), "(1920, 0)");
+		DrawFormatString(0, 1060, GetColor(255, 255, 255), "(0, 1080)");
+		DrawFormatString(1810, 1060, GetColor(255, 255, 255), "(1920, 1080)");
 	}
 
 	// 削除
