@@ -153,11 +153,13 @@
   <ItemGroup>
     <ClCompile Include="Coll2D.cpp" />
     <ClCompile Include="InputController.cpp" />
+    <ClCompile Include="LoadThread.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Coll2D.hpp" />
     <ClInclude Include="InputController.hpp" />
+    <ClInclude Include="LoadThread.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
