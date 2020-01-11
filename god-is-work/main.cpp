@@ -1,10 +1,10 @@
-#include "DxLib.h"
 #include <string>
-#include "InputController.hpp"
+
+#include "Manager.hpp"
 
 
 
-/// --------------------------------------------------------------------------------------------------
+/// -----------------------------------------------------------------------------------
 // ウィンドウサイズを決める
 int winWidth = 0;
 int winHeight = 0;
@@ -12,7 +12,7 @@ int bitColor = 0;
 
 
 
-/// --------------------------------------------------------------------------------------------------
+/// -----------------------------------------------------------------------------------
 bool Init(const int t_winWidth, const int t_winHeight, const int t_bitColor, std::string t_projectName)
 {
 	winWidth = t_winWidth;
@@ -50,18 +50,23 @@ bool Init(const int t_winWidth, const int t_winHeight, const int t_bitColor, std
 
 
 
-/// --------------------------------------------------------------------------------------------------
+/// -----------------------------------------------------------------------------------
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
 	if (Init(1920, 1080, 32, "God-Is-Work") == false) return -1;
 
 	InputControl::PadData::SetPadNum();
 
+	Manager m_manager = Manager();
+
 	// メインループ
-	while (!ScreenFlip() && !ProcessMessage() && !ClearDrawScreen() && !InputControl::KeyData::IsCheckEnd() && !InputControl::PadData::IsCheckEnd())
+	while (!ScreenFlip() && !ProcessMessage() && !ClearDrawScreen() && !InputControl::KeyData::IsCheckEnd() && !InputControl::PadData::IsCheckEnd() && !m_manager.GetEnd())
 	{
 		InputControl::KeyData::UpDate();
 		InputControl::PadData::UpDate();
+
+
+		m_manager.Update();
 
 
 		DrawFormatString(0, 0, GetColor(255, 255, 255), "(0, 0)");
@@ -71,6 +76,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	}
 
 	// 削除
+	m_manager.~Manager();
 	DxLib_End();		// DXライブラリの後始末
 
 

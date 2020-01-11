@@ -151,15 +151,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BaseScene.cpp" />
     <ClCompile Include="Coll2D.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameClear.cpp" />
+    <ClCompile Include="GameOver.cpp" />
     <ClCompile Include="InputController.cpp" />
     <ClCompile Include="LoadThread.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Manager.cpp" />
+    <ClCompile Include="TitleAndMenu.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BaseScene.hpp" />
     <ClInclude Include="Coll2D.hpp" />
+    <ClInclude Include="Game.hpp" />
+    <ClInclude Include="GameClear.hpp" />
+    <ClInclude Include="GameOver.hpp" />
     <ClInclude Include="InputController.hpp" />
     <ClInclude Include="LoadThread.hpp" />
+    <ClInclude Include="Manager.hpp" />
+    <ClInclude Include="TitleAndMenu.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

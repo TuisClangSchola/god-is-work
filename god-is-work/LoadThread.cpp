@@ -3,7 +3,7 @@
 
 namespace LoadThread_Lib
 {
-	/// ---------------------------------------------------------------------------------------
+	/// -----------------------------------------------------------------------------------
 	LoadThread::LoadThread(const int max, const std::vector<std::string> path, const std::vector<ELOADFILE> type, std::function<void(const int, const int, const int)> t_loadFunc)
 	{
 		std::vector<int>().swap(loadData);
@@ -65,7 +65,7 @@ namespace LoadThread_Lib
 
 
 
-	/// ---------------------------------------------------------------------------------------
+	/// -----------------------------------------------------------------------------------
 	LoadThread::~LoadThread()
 	{
 		for (int i = 0; i < loadType.size(); ++i)
@@ -112,7 +112,7 @@ namespace LoadThread_Lib
 
 
 
-	/// ---------------------------------------------------------------------------------------
+	/// -----------------------------------------------------------------------------------
 	void LoadThread::Process()
 	{
 		m_function(time++, maxNum, maxNum - GetASyncLoadNum());
@@ -125,7 +125,7 @@ namespace LoadThread_Lib
 
 
 
-	/// ---------------------------------------------------------------------------------------
+	/// -----------------------------------------------------------------------------------
 	const std::vector<int> LoadThread::GetFile() const
 	{
 		return loadData;
@@ -133,7 +133,7 @@ namespace LoadThread_Lib
 
 
 
-	/// ---------------------------------------------------------------------------------------
+	/// -----------------------------------------------------------------------------------
 	const bool LoadThread::GetEnd() const
 	{
 		return end;
