@@ -1,5 +1,6 @@
 #include "DxLib.h"
 #include <string>
+#include "InputController.hpp"
 
 
 
@@ -54,10 +55,15 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 {
 	if (Init(1920, 1080, 32, "God-Is-Work") == false) return -1;
 
+	InputControl::PadData::SetPadNum();
 
 	// ÉÅÉCÉìÉãÅ[Év
-	while (!ScreenFlip() && !ProcessMessage() && !ClearDrawScreen() && !CheckHitKey(KEY_INPUT_ESCAPE))
+	while (!ScreenFlip() && !ProcessMessage() && !ClearDrawScreen() && !InputControl::KeyData::IsCheckEnd() && !InputControl::PadData::IsCheckEnd())
 	{
+		InputControl::KeyData::UpDate();
+		InputControl::PadData::UpDate();
+
+
 		DrawFormatString(0, 0, GetColor(255, 255, 255), "Ç≈ÇØÇΩ");
 	}
 

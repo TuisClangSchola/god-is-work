@@ -34,10 +34,10 @@ namespace InputControl
 		};
 
 
-		//マウスのクリックの状態を更新する
+		// マウスを使うならmainのwhileで呼ぶ
 		static void UpDate();
 
-		//マウスのクリックの状態を返す
+		// マウスのクリックの状態を返す
 		static const int GetClick(const CLICK t_CLICK);
 
 		// 現在のマウスの位置
@@ -58,7 +58,7 @@ namespace InputControl
 
 
 	public:
-		//マウスのホイールの状態を更新
+		//マウスのホイールを使うならmainのwhileで呼ぶ
 		static void UpDate();
 
 		//マウスホイールの状態を返す
@@ -76,7 +76,7 @@ namespace InputControl
 
 
 	public:
-		static void UpDate();			// キー入力の状態更新
+		static void UpDate();			// キーを使うならmainのwhileで呼ぶ
 
 
 		static const int Get(const int t_keyCode);		// キー入力状態取得
@@ -136,7 +136,7 @@ namespace InputControl
 			STICK_MIN_VALUE = -32768
 		};
 
-		static void UpDate();		// ゲームパッドの入力の状態更新
+		static void UpDate();		// ゲームパッドを使うならmainのwhileで呼ぶ
 
 
 		static const int GetButton(const int t_code, const int t_padNum);									// ボタンの入力状態取得
@@ -151,7 +151,7 @@ namespace InputControl
 
 		static void SetDedZone(const short t_stickLX_MAX, const short t_stickLX_MIN, const short t_stickLY_MAX, const short t_stickLY_MIN
 			, const short t_stickRX_MAX, const short t_stickRX_MIN, const short t_stickRY_MAX, const short t_stickRY_MIN);					// デッドゾーンの設定
-		static void SetPadNum();																		// 接続されてるゲームパッドを取得する
+		static void SetPadNum();																		// 接続されてるゲームパッドを設定させる。使うならmainのwhile前で呼ぶ
 	};
 
 	void AllUpdate();
